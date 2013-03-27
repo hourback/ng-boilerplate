@@ -1,3 +1,3 @@
-This is my Ember.js project that I'm building from scratch.
+My test app in Ember.js.
 
-The app is a way to create relationships between causes and effects.
+Leaving aside Node & NPM for the moment, and sticking with only Ember.js.
