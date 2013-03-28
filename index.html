@@ -26,9 +26,28 @@
           </div>
       </div>
       <ul>
-          <li>{{linkTo causes }}</li>
-          <li>{{linkTo effects }}</li>
+          <li>{{#linkTo "index"}}Home{{/linkTo}}</li>
+          <li>{{#linkTo "causes"}}Causes{{/linkTo}}</li>
+          <li>{{#linkTo "effects"}}Effects{{/linkTo}}</li>
       </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="causes">
+      <div class="row">
+          <div class="four columns" id="causes">
+              {{ partial "causeMenu" }}
+          </div>
+          <div class="eight columns" id="order">
+              {{ outlet }}
+          </div>
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_causeMenu">
+      <h2>Causes</h2>
+      {{#each cause in controller}}
+      {{#linkTo "cause" cause class="panel six columns"}} {{ cause.id }}{{/linkTo}}
+      {{/each}}
   </script>
 
   <script src="js/libs/jquery-1.8.3.min.js"></script>

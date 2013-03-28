@@ -12,6 +12,12 @@ App.Router.map(function() {
     });
 });
 
+App.CausesRoute = Ember.Route.extend({
+    model: function() {
+        return App.Cause.find();
+    }
+});
+
 // Models
 App.Store = DS.Store.extend({
     revision: 11,
@@ -25,3 +31,33 @@ App.Cause = DS.Model.extend({
 App.Effect = DS.Model.extend({
     causes: DS.hasMany('App.Cause')
 });
+
+// Fixture data
+App.Cause.FIXTURES = [{
+    id: 1,
+    effect: 1
+}, {
+    id: 2,
+    effect: 2
+}, {
+    id: 3,
+    effect: 3
+}, {
+    id: 4,
+    effect: 4
+}];
+
+App.Effect.FIXTURES = [{
+    id: 1,
+    cause: 1
+}, {
+    id: 2,
+    cause: 2
+}, {
+    id: 3,
+    cause: 3
+}, {
+    id: 4,
+    cause: 4
+}];
+
