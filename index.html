@@ -33,20 +33,36 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="causes">
-      <div class="row">
-          <div class="four columns" id="causes">
+      <div>
+          <div id="causes">
               {{ partial "causeMenu" }}
           </div>
-          <div class="eight columns" id="order">
-              {{ outlet }}
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="effects">
+      <div>
+          <div id="effects">
+              {{ partial "effectMenu" }}
           </div>
       </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="_causeMenu">
       <h2>Causes</h2>
-      {{#each cause in controller}}
-      {{#linkTo "cause" cause class="panel six columns"}} {{ cause.id }}{{/linkTo}}
+      {{view Ember.TextField id="new-cause" placeholder="Enter a new cause here"
+      valueBinding="newName" action="createCause"}}
+      <ul>
+          {{#each cause in controller}}
+          <li>{{#linkTo "cause" cause }} {{ cause.name }}{{/linkTo}}</li>
+          {{/each}}
+      </ul>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="_effectMenu">
+      <h2>Effects</h2>
+      {{#each effect in controller}}
+      {{#linkTo "effect" effect }} {{ effect.name }}{{/linkTo}}
       {{/each}}
   </script>
 
