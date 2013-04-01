@@ -37,6 +37,17 @@
           <div id="causes">
               {{ partial "causeMenu" }}
           </div>
+          {{ outlet }}
+      </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="cause">
+      <div>
+          <div>
+              {{ id }}:
+              {{view Ember.TextField id="editedCauseName" placeholder="{{name}}"
+              valueBinding="newName" action="editCauseName"}}
+          </div>
       </div>
   </script>
 
