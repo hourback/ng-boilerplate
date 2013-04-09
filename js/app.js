@@ -12,6 +12,18 @@ App.Router.map(function() {
     });
 });
 
+App.CausesRoute = Ember.Route.extend({
+    model: function() {
+        return App.Cause.find();
+    }
+});
+
+App.EffectsRoute = Ember.Route.extend({
+    model: function() {
+        return App.Effect.find();
+    }
+});
+
 // Controllers
 App.CausesController = Ember.ArrayController.extend({
     createCause: function() {
@@ -32,15 +44,45 @@ App.CausesController = Ember.ArrayController.extend({
     }
 })
 
-App.CausesRoute = Ember.Route.extend({
-    model: function() {
-        return App.Cause.find();
+App.CauseController = Ember.ObjectController.extend({
+    isEditing: false,
+
+    editCause: function () {
+        this.set('isEditing', true);
+    },
+
+    removeCause: function () {
+        var cause = this.get('model');
+
+        cause.deleteRecord();
+        cause.get('store').commit();
     }
 });
 
-App.EffectsRoute = Ember.Route.extend({
-    model: function() {
-        return App.Effect.find();
+// Views
+App.EditCauseView = Ember.TextField.extend({
+    classNames: ['edit'],
+
+    valueBinding: 'cause.title',
+
+    change: function () {
+        var value = this.get('value');
+
+        if (Ember.isEmpty(value)) {
+            this.get('controller').removeCause();
+        }
+    },
+
+    focusOut: function () {
+        this.set('controller.isEditing', false);
+    },
+
+    insertNewline: function () {
+        this.set('controller.isEditing', false);
+    },
+
+    didInsertElement: function () {
+        this.$().focus();
     }
 });
 

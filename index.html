@@ -34,10 +34,28 @@
 
   <script type="text/x-handlebars" data-template-name="causes">
       <div>
-          <div id="causes">
-              {{ partial "causeMenu" }}
+          <div>
+              <header id="header">
+                  <h2>Causes</h2>
+                  {{view Ember.TextField id="new-cause" placeholder="Enter a new cause here"
+                  valueBinding="cause.name" action="createCause"}}
+              </header>
+              {{#if length}}
+                  <section id="causes"></section>
+                  <ul id="cause-list">
+                      {{#each cause itemController="cause"}}
+                          <li {{bindAttr class="isCompleted:completed isEditing:editing"}}>
+                              {{#if isEditing}}
+                                  {{view App.EditCauseView causeBinding="this"}}
+                              {{else}}
+                                  <label {{action "editCause" on="doubleClick"}}>{{name}}</label>
+                                  <button {{action "removeCause"}} class="destroy"></button>
+                              {{/if}}
+                          </li>
+                      {{/each}}
+                  </ul>
+              {{/if}}
           </div>
-          {{ outlet }}
       </div>
   </script>
 
@@ -45,8 +63,8 @@
       <div>
           <div>
               {{ id }}:
-              {{view Ember.TextField id="editedCauseName" placeholder="{{name}}"
-              valueBinding="newName" action="editCauseName"}}
+              {{view Ember.TextField id="editedCauseName" placeholder=""
+              valueBinding="newName" action="editCauseName" value="asdf"}}
           </div>
       </div>
   </script>
@@ -57,17 +75,6 @@
               {{ partial "effectMenu" }}
           </div>
       </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="_causeMenu">
-      <h2>Causes</h2>
-      {{view Ember.TextField id="new-cause" placeholder="Enter a new cause here"
-      valueBinding="newName" action="createCause"}}
-      <ul>
-          {{#each cause in controller}}
-          <li>{{#linkTo "cause" cause }} {{ cause.name }}{{/linkTo}}</li>
-          {{/each}}
-      </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name="_effectMenu">
