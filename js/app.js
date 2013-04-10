@@ -18,6 +18,13 @@ App.CausesRoute = Ember.Route.extend({
     }
 });
 
+App.CausesIndexRoute = Ember.Route.extend({
+    setupController: function () {
+        var causes = App.Cause.find();
+        this.controllerFor('causes').set('filteredCauses', causes);
+    }
+});
+
 App.EffectsRoute = Ember.Route.extend({
     model: function() {
         return App.Effect.find();
@@ -33,7 +40,7 @@ App.CausesController = Ember.ArrayController.extend({
 
         // Create the new Cause model
         App.Cause.createRecord({
-            name: title,
+            name: title
         });
 
         // Clear the "New Cause" text field

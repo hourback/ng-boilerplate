@@ -38,22 +38,23 @@
               <header id="header">
                   <h2>Causes</h2>
                   {{view Ember.TextField id="new-cause" placeholder="Enter a new cause here"
-                  valueBinding="cause.name" action="createCause"}}
+                  valueBinding="newName" action="createCause"}}
               </header>
               {{#if length}}
-                  <section id="causes"></section>
-                  <ul id="cause-list">
-                      {{#each cause itemController="cause"}}
-                          <li {{bindAttr class="isCompleted:completed isEditing:editing"}}>
-                              {{#if isEditing}}
-                                  {{view App.EditCauseView causeBinding="this"}}
-                              {{else}}
-                                  <label {{action "editCause" on="doubleClick"}}>{{name}}</label>
-                                  <button {{action "removeCause"}} class="destroy"></button>
-                              {{/if}}
-                          </li>
-                      {{/each}}
-                  </ul>
+                  <section id="causes">
+                      <ul id="cause-list">
+                          {{#each filteredCauses itemController="cause"}}
+                              <li {{bindAttr class="isEditing:editing"}}>
+                                  {{#if isEditing}}
+                                    {{view App.EditCauseView causeBinding="this"}}
+                                  {{else}}asdf
+                                    <label {{action "editCause" on="doubleClick"}}>Name: {{name}}</label>
+                                    <button {{action "removeCause"}} class="destroy">Delete cause?</button>
+                                  {{/if}}
+                              </li>
+                          {{/each}}
+                      </ul>
+                  </section>
               {{/if}}
           </div>
       </div>
