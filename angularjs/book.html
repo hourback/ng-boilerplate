@@ -1,30 +1,27 @@
-<!DOCTYPE html>
-<html ng-app>
+<html>
 <head>
-    <title>Your Shopping Cart</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
 </head>
-<body ng-controller='CartController'>
-<h1>Your Order</h1>
-<div ng-repeat='item in items'>
-    <span>{{item.title}}</span>
-    <input ng-model='item.quantity'>
-    <span>{{item.price | currency}}</span>
-    <span>{{item.price * item.quantity | currency}}</span>
-    <button ng-click="remove($index)">Remove</button>
-</div>
-<script src="components/angular/angular.js"></script>
-<script>
-    function CartController($scope) {
-        $scope.items = [
-            {title: 'Paint pots', quantity: 8, price: 3.95},
-            {title: 'Polka dots', quantity: 17, price: 12.95},
-            {title: 'Pebbles', quantity: 5, price: 6.95}
-        ];
+<body>
+<div ng-controller='DeathrayMenuController'>
+    <button ng-click='toggleMenu()'>Toggle Menu</button>
+    <ul ng-show='menuState.show'>
+        <li ng-click='stun()'>Stun</li>
+        <li ng-click='disintegrate()'>Disintegrate</li>
+        <li ng-click='erase()'>Erase from history</li>
+    </ul>
+    <div/>
 
-        $scope.remove = function(index) {
-            $scope.items.splice(index, 1);
+    <script type="text/javascript">
+        function DeathrayMenuController($scope) {
+            $scope.menuState.show = false;
+
+            $scope.toggleMenu = function() {
+                $scope.menuState.show = !$scope.menuState.show;
+            };
+
+            // death ray functions left as exercise to reader
         }
-    }
-</script>
+    </script>
 </body>
 </html>
