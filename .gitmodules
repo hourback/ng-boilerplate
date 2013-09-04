@@ -1,3 +1,0 @@
-[submodule "externals/todomvc"]
-	path = externals/todomvc
-	url = git://github.com/addyosmani/todomvc.git
