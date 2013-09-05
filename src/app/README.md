@@ -55,7 +55,7 @@ submodules we include, as that is where our app's functionality is really
 defined.  So all we need to do in `app.js` is specify a default route to follow,
 which route of course is defined in a submodule. In this case, our `home` module
 is where we want to start, which has a defined route for `/home` in
-`src/app/home/home.js`.
+`src/app/home/account.js`.
 
 ```js
 .config( function ngBoilerplateConfig ( $routeProvider ) {
@@ -74,7 +74,7 @@ this now to ensure it runs before our controllers set titles.
 }])
 ```
 
-And then we define our main application controller. It need not have any logic, 
+And then we define our main application controller. It need not have any logic,
 but this is a good place for logic not specific to the template or route, such as
 menu logic or page title wiring.
 

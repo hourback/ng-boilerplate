@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module( 'causeAndEffect.home', [
+angular.module( 'causeAndEffect.account', [
   'ui.state',
   'titleService',
   'plusOne'
@@ -24,12 +24,12 @@ angular.module( 'causeAndEffect.home', [
  * this way makes each module more "self-contained".
  */
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
-    url: '/home',
+  $stateProvider.state( 'account', {
+    url: '/account',
     views: {
       "main": {
-        controller: 'HomeCtrl',
-        templateUrl: 'home/home.tpl.html'
+        controller: 'AccountCtrl',
+        templateUrl: 'account/account.tpl.html'
       }
     }
   });
@@ -38,8 +38,8 @@ angular.module( 'causeAndEffect.home', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope, titleService ) {
-  titleService.setTitle( 'Home' );
+.controller( 'AccountCtrl', function AccountController( $scope, titleService ) {
+  titleService.setTitle( 'Account' );
 })
 
 ;

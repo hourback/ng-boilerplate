@@ -1,8 +1,9 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'causeAndEffect', [
   'templates-app',
   'templates-common',
-  'ngBoilerplate.home',
-  'ngBoilerplate.about',
+  'causeAndEffect.home',
+  'causeAndEffect.about',
+  'causeAndEffect.account',
   'ui.state',
   'ui.route'
 ])
@@ -12,7 +13,7 @@ angular.module( 'ngBoilerplate', [
 })
 
 .run( function run ( titleService ) {
-  titleService.setSuffix( ' | ngBoilerplate' );
+  titleService.setSuffix( ' | causeAndEffect' );
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {

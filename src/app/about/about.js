@@ -1,4 +1,4 @@
-angular.module( 'ngBoilerplate.about', [
+angular.module( 'causeAndEffect.about', [
   'ui.state',
   'placeholders',
   'ui.bootstrap',
@@ -19,7 +19,7 @@ angular.module( 'ngBoilerplate.about', [
 
 .controller( 'AboutCtrl', function AboutCtrl( $scope, titleService ) {
   titleService.setTitle( 'What is It?' );
-  
+
   // This is simple a demo for UI Boostrap.
   $scope.dropdownDemoItems = [
     "The first choice!",
