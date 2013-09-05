@@ -4,4 +4,7 @@ build/
 bin/
 node_modules/
 vendor/
+<<<<<<< HEAD
 .idea/
+=======
+>>>>>>> c1555596daa00469d1ff746d98f19c69b12a8df9
