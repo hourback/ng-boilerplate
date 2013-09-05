@@ -1,7 +1,6 @@
 {
   "author": "Ali Nabavi",
   "name": "causeandeffect",
-<<<<<<< HEAD
   "version": "0.1.0",
   "homepage": "",
   "licenses": {
@@ -12,18 +11,6 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:hourback/causeandeffect.git"
-=======
-  "version": "0.3.0",
-  "homepage": "http://bit.ly/ng-boilerplate",
-  "licenses": {
-    "type": "MIT",
-    "url": "https://raw.github.com/joshdmiller/ng-boilerplate/master/LICENSE"
-  },
-  "bugs": "https://github.com/joshdmiller/ng-boilerplate/issues",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:joshdmiller/ng-boilerplate.git"
->>>>>>> c1555596daa00469d1ff746d98f19c69b12a8df9
   },
   "dependencies": {},
   "devDependencies": {
