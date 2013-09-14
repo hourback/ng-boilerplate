@@ -98,13 +98,24 @@ module.exports = function ( grunt ) {
      * `build_dir`, and then to copy the assets to `compile_dir`.
      */
     copy: {
-      build_assets: {
+      build_app_assets: {
         files: [
           { 
             src: [ '**' ],
             dest: '<%= build_dir %>/assets/',
             cwd: 'src/assets',
             expand: true
+          }
+       ]   
+      },
+      build_vendor_assets: {
+        files: [
+          { 
+            src: [ '<%= vendor_files.assets %>' ],
+            dest: '<%= build_dir %>/assets/',
+            cwd: '.',
+            expand: true,
+            flatten: true
           }
        ]   
       },
@@ -145,6 +156,17 @@ module.exports = function ( grunt ) {
      */
     concat: {
       /**
+       * The `build_css` target concatenates compiled CSS and vendor CSS
+       * together.
+       */
+      build_css: {
+        src: [
+          '<%= vendor_files.css %>',
+          '<%= recess.build.dest %>'
+        ],
+        dest: '<%= recess.build.dest %>'
+      },
+      /**
        * The `compile_js` target is the concatenation of our application source
        * code and all specified vendor source code into a single file.
        */
@@ -161,7 +183,11 @@ module.exports = function ( grunt ) {
           '<%= vendor_files.js %>', 
           'module.suffix' 
         ],
+<<<<<<< HEAD
         dest: '<%= compile_dir %>/assets/<%= pkg.name %>.js'
+=======
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+>>>>>>> 3344671027f05921b10fcd5daf16f5c2aba06e69
       }
     },
 
@@ -224,7 +250,7 @@ module.exports = function ( grunt ) {
     recess: {
       build: {
         src: [ '<%= app_files.less %>' ],
-        dest: '<%= build_dir %>/assets/<%= pkg.name %>.css',
+        dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css',
         options: {
           compile: true,
           compress: false,
@@ -539,9 +565,16 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
+<<<<<<< HEAD
     'clean', 'html2js', 'jshint', 'coffeelint', 'coffee','recess:build',
     'copy:build_assets', 'copy:build_appjs', 'copy:build_vendorjs',
     'index:build', 'karmaconfig', 'karma:continuous' 
+=======
+    'clean', 'html2js', 'jshint', 'coffeelint', 'coffee', 'recess:build',
+    'concat:build_css', 'copy:build_app_assets', 'copy:build_vendor_assets',
+    'copy:build_appjs', 'copy:build_vendorjs', 'index:build', 'karmaconfig',
+    'karma:continuous' 
+>>>>>>> 3344671027f05921b10fcd5daf16f5c2aba06e69
   ]);
 
   /**
@@ -549,7 +582,11 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
+<<<<<<< HEAD
     'recess:compile', 'copy:compile_assets', 'ngmin', 'concat', 'uglify', 'index:compile'
+=======
+    'recess:compile', 'copy:compile_assets', 'ngmin', 'concat:compile_js', 'uglify', 'index:compile'
+>>>>>>> 3344671027f05921b10fcd5daf16f5c2aba06e69
   ]);
 
   /**

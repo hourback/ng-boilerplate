@@ -20,7 +20,7 @@ module.exports = {
    * app's unit tests.
    */
   app_files: {
-    js: [ 'src/**/*.js', '!src/**/*.spec.js' ],
+    js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
     
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
@@ -46,6 +46,10 @@ module.exports = {
    *
    * The `vendor_files.css` property holds any CSS files to be automatically
    * included in our app.
+   *
+   * The `vendor_files.assets` property holds any assets to be copied along
+   * with our app's assets. This structure is flattened, so it is not
+   * recommended that you use wildcards.
    */
   vendor_files: {
     js: [
@@ -56,6 +60,8 @@ module.exports = {
       'vendor/angular-ui-utils/modules/route/route.js'
     ],
     css: [
+    ],
+    assets: [
     ]
   },
 };
