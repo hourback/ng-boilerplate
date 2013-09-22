@@ -1,4 +1,4 @@
-angular.module( 'ngBoilerplate', [
+angular.module( 'causeAndEffect', [
   'templates-app',
   'templates-common',
   'ngBoilerplate.home',
