@@ -613,7 +613,9 @@ module.exports = function ( grunt ) {
           data: {
             scripts: jsFiles,
             styles: cssFiles,
-            version: grunt.config( 'pkg.version' )
+            version: grunt.config( 'pkg.version' ),
+            author: grunt.config( 'pkg.author' ),
+            name: grunt.config( 'pkg.name' )
           }
         });
       }
