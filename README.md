@@ -19,8 +19,6 @@ $ grunt watch
 
 Finally, open `file:///path/to/causeAndEffect/build/index.html` in your browser.
 
-Happy hacking!
-
 ## Purpose
 
 ## Philosophy
