@@ -180,7 +180,6 @@ module.exports = function ( grunt ) {
           '<%= build_dir %>/src/**/*.js', 
           '<%= html2js.app.dest %>', 
           '<%= html2js.common.dest %>', 
-          '<%= vendor_files.js %>', 
           'module.suffix' 
         ],
         dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
@@ -412,7 +411,7 @@ module.exports = function ( grunt ) {
           '<%= vendor_files.js %>',
           '<%= html2js.app.dest %>',
           '<%= html2js.common.dest %>',
-          'vendor/angular-mocks/angular-mocks.js'
+          '<%= test_files.js %>'
         ]
       }
     },
